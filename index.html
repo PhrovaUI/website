@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta name="theme-color" content="#10090c">
+  <meta name="description" content="PhrovaUI is a tailored Android custom ROM project built on crDroid and currently in development.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PhrovaUI">
+  <meta property="og:description" content="All that was lost, is now part of the music.">
+
+  <title>PhrovaUI — All that was lost, is now part of the music</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+
+  <!-- Tiny and synchronous: lets CSS hide reveal-elements only when JS will un-hide them. -->
+  <script>document.documentElement.className+=' js'</script>
+
+  <link rel="preload" as="image" href="assets/spider-lily-sm.webp" imagesrcset="assets/spider-lily-sm.webp 768w, assets/spider-lily.webp 1536w" imagesizes="100vw" fetchpriority="high">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ============ INTRO (real loading: waits for the page's own fonts + images) ============ -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-curtain intro-top"></div>
+    <div class="intro-curtain intro-bottom"></div>
+    <div class="intro-core">
+      <div class="intro-word">Phrova<span>UI</span></div>
+      <div class="intro-bar"><i id="intro-fill"></i></div>
+      <div class="intro-meta"><span>LOADING</span><span id="intro-pct">0%</span></div>
+    </div>
+  </div>
+
+  <header class="site-header" id="top-header">
+    <div class="header-inner">
+
+      <a class="brand" href="#top" aria-label="PhrovaUI home">
+        <span class="brand-icon">
+          <img src="assets/logo.svg" alt="" width="43" height="43">
+        </span>
+        <span class="brand-name">Phrova<span>UI</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+        <i></i><i></i>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#pillars">Pillars</a>
+        <a href="#community">Community</a>
+
+        <span class="nav-separator"></span>
+
+        <a class="social-link"
+           href="https://github.com/PhrovaUI"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="PhrovaUI on GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.1.67-3.75-1.32-3.75-1.32-.5-1.29-1.23-1.63-1.23-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.12 2.95.71.78 1.14 1.77 1.14 2.99 0 4.29-2.61 5.23-5.1 5.51.4.35.75 1.03.75 2.08V22c0 .29.2.63.77.52A11.1 11.1 0 0 0 12 .9Z"/>
+          </svg>
+        </a>
+
+        <a class="social-link"
+           href="https://t.me/PhrovaGroup"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="PhrovaUI Telegram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21.8 3.2 18.5 20c-.25 1.19-.92 1.48-1.86.92l-5.14-3.79-2.48 2.39c-.27.27-.5.5-1.03.5l.37-5.23 9.52-8.6c.42-.37-.09-.58-.65-.21L5.46 13.3.38 11.72c-1.1-.35-1.12-1.1.23-1.64L20.48 2.5c.91-.34 1.71.22 1.32.7Z"/>
+          </svg>
+        </a>
+      </nav>
+
+    </div>
+    <span class="scroll-progress" id="progress" aria-hidden="true"></span>
+  </header>
+
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title" id="hero">
+      <img class="hero-bg" id="hero-bg"
+           src="assets/spider-lily.webp"
+           srcset="assets/spider-lily-sm.webp 768w, assets/spider-lily.webp 1536w"
+           sizes="100vw"
+           width="1536" height="1024" alt="" fetchpriority="high" decoding="async">
+      <div class="hero-shade"></div>
+
+      <div class="petals" aria-hidden="true">
+        <i style="--x:8%;  --s:14px; --t:17s; --d:-2s"></i>
+        <i class="far" style="--x:22%; --s:26px; --t:26s; --d:-9s"></i>
+        <i style="--x:38%; --s:12px; --t:19s; --d:-14s"></i>
+        <i class="far" style="--x:55%; --s:30px; --t:28s; --d:-5s"></i>
+        <i style="--x:68%; --s:10px; --t:18s; --d:-11s"></i>
+        <i style="--x:79%; --s:13px; --t:22s; --d:-1s"></i>
+        <i style="--x:90%; --s:9px;  --t:20s; --d:-16s"></i>
+        <i style="--x:47%; --s:11px; --t:25s; --d:-7s"></i>
+      </div>
+
+      <div class="hero-inner" id="hero-inner">
+
+        <div class="hero-content">
+
+          <div class="status-pill hero-rise" style="--i:0">
+            <span class="status-dot"></span>
+            Work in progress
+          </div>
+
+          <p class="eyebrow hero-rise" data-type style="--i:1">AN ANDROID CUSTOM ROM. BUILT ON CRDROID.</p>
+
+          <h1 id="hero-title" class="hero-rise" data-type style="--i:2">Phrova<span>UI</span></h1>
+
+          <p class="tagline hero-rise" data-type style="--i:3">
+            All that was lost, is now part of the music.
+          </p>
+
+          <p class="hero-description hero-rise" data-type style="--i:4">
+            An Android custom ROM, forged in development.
+            No shortcuts. No noise. Just the build.
+          </p>
+
+          <p class="hero-note hero-rise" style="--i:5">PERSONAL PROJECT &nbsp;·&nbsp; NOT A PUBLIC RELEASE</p>
+
+          <div class="hero-actions hero-rise" style="--i:6">
+            <a class="button button-primary"
+               href="https://t.me/PhrovaGroup"
+               target="_blank"
+               rel="noopener noreferrer">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21.8 3.2 18.5 20c-.25 1.19-.92 1.48-1.86.92l-5.14-3.79-2.48 2.39c-.27.27-.5.5-1.03.5l.37-5.23 9.52-8.6c.42-.37-.09-.58-.65-.21L5.46 13.3.38 11.72c-1.1-.35-1.12-1.1.23-1.64L20.48 2.5c.91-.34 1.71.22 1.32.7Z"/>
+              </svg>
+
+              Join our Telegram
+              <span class="external-arrow">↗</span>
+            </a>
+
+            <a class="button button-secondary"
+               href="https://github.com/PhrovaUI"
+               target="_blank"
+               rel="noopener noreferrer">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.1.67-3.75-1.32-3.75-1.32-.5-1.29-1.23-1.63-1.23-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.12 2.95.71.78 1.14 1.77 1.14 2.99 0 4.29-2.61 5.23-5.1 5.51.4.35.75 1.03.75 2.08V22c0 .29.2.63.77.52A11.1 11.1 0 0 0 12 .9Z"/>
+              </svg>
+
+              Explore GitHub
+              <span class="external-arrow">↗</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>SMOOTH</span><b>✦</b><span>DISTINCTIVE</span><b>✦</b><span>RELIABLE</span><b>✦</b><span>NO COMPROMISE</span><b>✦</b><span>BUILT ON CRDROID</span><b>✦</b>
+        <span>SMOOTH</span><b>✦</b><span>DISTINCTIVE</span><b>✦</b><span>RELIABLE</span><b>✦</b><span>NO COMPROMISE</span><b>✦</b><span>BUILT ON CRDROID</span><b>✦</b>
+      </div>
+    </div>
+
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about cv" id="about">
+      <div class="wrap about-grid">
+
+        <div class="about-block">
+          <div class="section-heading reveal">
+            <span class="section-number">01</span>
+            <span class="heading-rule"></span>
+            <span>ABOUT THE PROJECT</span>
+          </div>
+
+          <h2 class="reveal" data-type style="--d:.08s">Built in silence. Made to <em>hit.</em></h2>
+
+          <p class="reveal" data-type style="--d:.16s">
+            PhrovaUI is a Android custom ROM project built upon the crDroid ecosystem and inspired by Phrolova from Wuthering Waves. Developed as a personal endeavor rather than a public-facing project, its goal is to maintain a smooth, distinctive, and reliable software experience. It openly credits its crDroid codebase and upstream sources while providing a unique, personalized spin on the Android open-source ecosystem.
+          </p>
+
+          <p class="reveal" data-type style="--d:.24s">
+            Development is ongoing.
+          </p>
+
+          <a class="text-link reveal" style="--d:.32s"
+             href="https://github.com/PhrovaUI"
+             target="_blank"
+             rel="noopener noreferrer">
+            <span class="link-icon">↗</span>
+            Explore our repositories
+          </a>
+        </div>
+
+        <div class="emblem reveal pop" style="--d:.1s">
+          <span class="emblem-ring"></span>
+          <img src="assets/logo-640.webp" alt="PhrovaUI emblem: a red spider lily and musical staff" width="640" height="640" loading="lazy" decoding="async">
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============ FACT STRIP ============ -->
+    <section class="facts cv" aria-label="Project at a glance">
+      <div class="wrap facts-grid">
+        <div class="fact reveal"><small>BASE</small><strong>crDroid</strong></div>
+        <div class="fact reveal" style="--d:.08s"><small>PLATFORM</small><strong>Android</strong></div>
+        <div class="fact reveal" style="--d:.16s"><small>STAGE</small><strong>In development</strong></div>
+        <div class="fact reveal" style="--d:.24s"><small>SOURCE</small><strong>Open on GitHub</strong></div>
+      </div>
+    </section>
+
+
+    <!-- ============ PILLARS ============ -->
+    <section class="section pillars cv" id="pillars">
+      <div class="wrap">
+
+        <div class="section-heading reveal">
+          <span class="section-number">02</span>
+          <span class="heading-rule"></span>
+          <span>THE PILLARS</span>
+        </div>
+
+        <h2 class="section-title reveal" data-type style="--d:.08s">Four rules. <em>No exceptions.</em></h2>
+        <p class="section-lead reveal" data-type style="--d:.14s">Every decision in this project answers to these. From the first commit to the last detail.</p>
+
+        <div class="pillar-grid">
+
+          <article class="pillar reveal">
+            <span class="pillar-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12c2.5 0 2.5-6 5-6s2.5 12 5 12 2.5-12 5-12 2.5 6 5 6"/></svg>
+            </span>
+            <h3>Smooth</h3>
+            <p>Fluid or nothing. Anything that drags the experience gets torn out.</p>
+          </article>
+
+          <article class="pillar reveal" style="--d:.08s">
+            <span class="pillar-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 14.2 9.8 21.5 12 14.2 14.2 12 21.5 9.8 14.2 2.5 12 9.8 9.8Z"/></svg>
+            </span>
+            <h3>Distinctive</h3>
+            <p>Crimson and ink. No stock look, no borrowed identity — a hard personal spin on Android.</p>
+          </article>
+
+          <article class="pillar reveal" style="--d:.16s">
+            <span class="pillar-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20 5.5v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10v-6Z"/><path d="m8.5 12 2.6 2.6 4.6-5"/></svg>
+            </span>
+            <h3>Reliable</h3>
+            <p>Stability before spectacle. A beautiful ROM that breaks is worthless.</p>
+          </article>
+
+          <article class="pillar reveal" style="--d:.24s">
+            <span class="pillar-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg>
+            </span>
+            <h3>Credited</h3>
+            <p>crDroid and every upstream source get their credit. Openly. Loudly.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ LINEAGE ============ -->
+    <section class="section lineage cv" id="lineage">
+      <div class="wrap">
+
+        <div class="section-heading reveal">
+          <span class="section-number">03</span>
+          <span class="heading-rule"></span>
+          <span>STANDING ON SHOULDERS</span>
+        </div>
+
+        <h2 class="section-title reveal" data-type style="--d:.08s">Respect the <em>source.</em></h2>
+        <p class="section-lead reveal" data-type style="--d:.14s">PhrovaUI stands on crDroid and the open-source work beneath it. We say so, plainly.</p>
+
+        <ol class="chain">
+          <li class="chain-node reveal">
+            <span class="chain-dot"></span>
+            <small>THE ROOT</small>
+            <strong>Android Open Source Project</strong>
+          </li>
+          <li class="chain-node reveal" style="--d:.1s">
+            <span class="chain-dot"></span>
+            <small>THE FOUNDATION</small>
+            <strong>LineageOS &amp; upstream sources</strong>
+          </li>
+          <li class="chain-node reveal" style="--d:.2s">
+            <span class="chain-dot"></span>
+            <small>THE CODEBASE</small>
+            <strong>crDroid</strong>
+          </li>
+          <li class="chain-node chain-final reveal" style="--d:.3s">
+            <span class="chain-dot"></span>
+            <small>THE MELODY</small>
+            <strong>Phrova<span>UI</span></strong>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+
+    <!-- ============ STATUS ============ -->
+    <section class="section status cv" id="status">
+      <div class="wrap">
+        <section class="project-block" aria-labelledby="project-status-title">
+          <div class="status-card reveal">
+            <span class="status-beacon"></span>
+
+            <div class="status-card-copy">
+              <h3 id="project-status-title">
+                Something is<br>
+                taking <em>shape.</em>
+              </h3>
+
+              <p>
+                We're working on the foundations before sharing more.
+              </p>
+            </div>
+
+            <span class="development-label">IN DEVELOPMENT</span>
+          </div>
+        </section>
+      </div>
+    </section>
+
+
+    <!-- ============ FAQ ============ -->
+    <section class="section faq cv" id="faq">
+      <div class="wrap faq-grid">
+
+        <div class="faq-intro">
+          <div class="section-heading reveal">
+            <span class="section-number">04</span>
+            <span class="heading-rule"></span>
+            <span>QUESTIONS</span>
+          </div>
+          <h2 class="section-title reveal" data-type style="--d:.08s">Straight <em>answers.</em></h2>
+          <p class="section-lead reveal" data-type style="--d:.14s">No fluff. Here is where things stand.</p>
+        </div>
+
+        <div class="faq-list reveal" style="--d:.1s">
+          <details>
+            <summary>What is PhrovaUI?</summary>
+            <p>An Android custom ROM project built upon the crDroid ecosystem and inspired by Phrolova from Wuthering Waves, aiming for a smooth, distinctive and reliable experience.</p>
+          </details>
+          <details>
+            <summary>Can I download it yet?</summary>
+            <p>No. The foundations come first. Follow the Telegram group for announcements and releases.</p>
+          </details>
+          <details>
+            <summary>Can I build it for my device?</summary>
+            <p>If you would like to build PhrovaUI for your device, feel free to follow the project for future source updates, announcements, and releases.</p>
+          </details>
+          <details>
+            <summary>Where does the code come from?</summary>
+            <p>PhrovaUI openly credits its crDroid codebase and upstream sources, then adds its own personalised spin on top.</p>
+          </details>
+          <details>
+            <summary>Is it meant for the public?</summary>
+            <p>No. It is a personal endeavour, not a public-facing project. Follow along if you want to watch it take shape.</p>
+          </details>
+          <details>
+            <summary>Is this an official project?</summary>
+            <p>No. It is a personal, fan-inspired endeavour. Wuthering Waves and Phrolova belong to their respective owners.</p>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============ FINALE ============ -->
+    <section class="finale cv watch" id="community">
+      <img class="finale-bg"
+           src="assets/spider-lily-sm.webp"
+           srcset="assets/spider-lily-sm.webp 768w, assets/spider-lily.webp 1536w"
+           sizes="100vw" alt="" loading="lazy" decoding="async">
+      <div class="finale-shade"></div>
+
+      <div class="petals" aria-hidden="true">
+        <i style="--x:12%; --s:12px; --t:19s; --d:-3s"></i>
+        <i style="--x:30%; --s:9px;  --t:23s; --d:-10s"></i>
+        <i style="--x:52%; --s:14px; --t:21s; --d:-6s"></i>
+        <i style="--x:73%; --s:10px; --t:18s; --d:-13s"></i>
+        <i style="--x:88%; --s:13px; --t:24s; --d:-1s"></i>
+      </div>
+
+      <div class="wrap finale-inner">
+
+        <div class="section-heading reveal">
+          <span class="section-number">05</span>
+          <span class="heading-rule"></span>
+          <span>STAY CONNECTED</span>
+        </div>
+
+        <img class="finale-logo reveal pop" style="--d:.05s" src="assets/logo-640.webp" alt="" width="640" height="640" loading="lazy" decoding="async">
+
+        <h2 class="reveal" data-type style="--d:.1s">Stay close. <em>Don't blink.</em></h2>
+
+        <p class="reveal" data-type style="--d:.18s">
+          If you would like to build PhrovaUI for your device, feel free to follow the project for future source updates, announcements, and releases.
+        </p>
+
+        <div class="hero-actions finale-actions reveal" style="--d:.26s">
+          <a class="button button-primary"
+             href="https://t.me/PhrovaGroup"
+             target="_blank"
+             rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21.8 3.2 18.5 20c-.25 1.19-.92 1.48-1.86.92l-5.14-3.79-2.48 2.39c-.27.27-.5.5-1.03.5l.37-5.23 9.52-8.6c.42-.37-.09-.58-.65-.21L5.46 13.3.38 11.72c-1.1-.35-1.12-1.1.23-1.64L20.48 2.5c.91-.34 1.71.22 1.32.7Z"/>
+            </svg>
+            Join the Telegram community
+            <span class="external-arrow">↗</span>
+          </a>
+
+          <a class="button button-secondary"
+             href="https://github.com/PhrovaUI"
+             target="_blank"
+             rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.1.67-3.75-1.32-3.75-1.32-.5-1.29-1.23-1.63-1.23-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.12 2.95.71.78 1.14 1.77 1.14 2.99 0 4.29-2.61 5.23-5.1 5.51.4.35.75 1.03.75 2.08V22c0 .29.2.63.77.52A11.1 11.1 0 0 0 12 .9Z"/>
+            </svg>
+            Explore GitHub
+            <span class="external-arrow">↗</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#top">PHROVAUI</a>
+
+    <span class="footer-line"></span>
+
+    <div class="footer-links">
+      <a href="https://github.com/PhrovaUI"
+         target="_blank"
+         rel="noopener noreferrer">
+        GitHub
+      </a>
+
+      <span></span>
+
+      <a href="https://t.me/PhrovaGroup"
+         target="_blank"
+         rel="noopener noreferrer">
+        Telegram
+      </a>
+
+      <span></span>
+
+      <small>© 2026 PhrovaUI. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
